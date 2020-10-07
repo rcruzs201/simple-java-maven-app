@@ -5,11 +5,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                IMAGE = readMavenPom().getArtifactId()
-                VERSION = readMavenPom().getVersion()
-                echo IMAGE
-                echo VERSION
-                sh 'mvn -B -DskipTests clean package'
+                script {
+                    IMAGE = readMavenPom().getArtifactId()
+                    VERSION = readMavenPom().getVersion()
+                    echo IMAGE
+                    echo VERSION
+                    sh 'mvn -B -DskipTests clean package'
+                }
             }
         }
         stage('Test') {
