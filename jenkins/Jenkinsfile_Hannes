@@ -8,10 +8,10 @@ pipeline {
                 script {
                     IMAGE = readMavenPom().getArtifactId()
                     VERSION = readMavenPom().getVersion()
-                    URL = readMavenPom().getUrl()
+                    VARURL = readMavenPom().getUrl()
                     echo IMAGE
                     echo VERSION
-                    echo URL
+                    echo VARURL
                     sh 'mvn -B -DskipTests clean package'
                 }
             }
