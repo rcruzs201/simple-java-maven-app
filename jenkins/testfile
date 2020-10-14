@@ -1,1 +1,3 @@
-echo "test"
+#! usr/bin/env groovy
+@Library('roche_shared_library')_
+build()
